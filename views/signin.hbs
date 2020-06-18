@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+    <html>
+    <header>
+        <title>Sign In Page</title>
+    </header>
+        <body>
+        
+        <div id="page">
+            {{!-- this is the start of nav bar --}}
+            	<nav role="navigation">
+		<div>
+			<div><img src="images/logo.png" width="80px", height="48px"></div>
+
+			{{#if user}}
+				<h3>Welcome back, {{user.username}}</h3>
+				<div>
+					<ul>
+						<li class="active"><a href="/">Home</a></li>
+	    				<li class="btn-cta"><a href="/logout"><span>Logout</span></a></li>
+					</ul>
+				</div>
+			{{else}}
+				<div>
+					<ul>									
+                        <li><a href="/">Home</a></li>
+						<li><a href="/signin">Sign in</a></li>
+						<li><a href="/signup">Sign Up</a></li>
+					</ul>
+				</div>
+			{{/if}}
+
+		</div>
+	</nav> 
+        {{!--  end of nav bar --}}
+
+        <p>Please signin below</p>
+
+            <form action="/signin" method="post">
+
+                <div id="focus">
+                    <label>Username</label>
+                    <input id="focus" name="username" type="text" autofocus placeholder="Username" minlength="3" maxlength="14" />
+                </div>
+
+                <div>
+                    <label>Password</label>
+                    <input name="password" type="password" placeholder="Enter Password" minlength="10" maxlength="35" />
+                </div>
+
+                    <input name="submit" type="submit" value="signin" />
+
+            </form>
+
+        </body>
+    </html>
